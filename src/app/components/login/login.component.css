@@ -1,0 +1,15 @@
+body{
+    overflow-x: hidden;
+    background-image: url('../../../assets/login.jpg');
+    width: 97vw;
+    height: 97vh;
+}
+
+input{
+    width:400px 
+}
+
+h3{
+    color: rgba(223, 37, 37, 0.979);
+}
+

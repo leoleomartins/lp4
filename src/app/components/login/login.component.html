@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <title>Login</title>
+
+    </head>
+    <body   style="background-image: url('./assets/login.jpg');">
+        <div class="align-items-start d-flex justify-content-center form-check" style="text-align: center">   
+
+            <form [formGroup]="userForm">
+             <h1>Login</h1> <br>
+             <h3 id="mensagemErro">{{mensagemErro}}</h3>
+             <label for="exampleInputEmail1" class="form-label">CPF</label> 
+             <input type="text" class="form-control" formControlName="cpf" id="cpf">
+             <br><label for="exampleInputPassword1" class="form-label" >Senha</label>                      
+             <br><input type="password" class="form-control" formControlName="senha" id="password" >
+             <br><button type="submit" class="btn btn-primary" (click)="entrar()">Entrar</button>                          
+            </form>    
+               
+        </div>
+    </body>
+
+</html>
+
+
+
