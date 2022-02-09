@@ -27,7 +27,7 @@ export class ClientesComponent implements OnInit {
       },
       {
         'id':3,
-        'nome':'matheus',
+        'nome':'pureza',
         'cpf':'1235'
       },
       {

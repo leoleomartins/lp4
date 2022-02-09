@@ -13,11 +13,11 @@
             <form [formGroup]="userForm">
              <h1>Login</h1> <br>
              <h3 id="mensagemErro">{{mensagemErro}}</h3>
-             <label for="exampleInputEmail1" class="form-label">CPF</label> 
+             <label for="cpf" class="form-label">CPF</label> 
              <input type="text" class="form-control" formControlName="cpf" id="cpf">
-             <br><label for="exampleInputPassword1" class="form-label" >Senha</label>                      
+             <br><label for="password" class="form-label" >Senha</label>                      
              <br><input type="password" class="form-control" formControlName="senha" id="password" >
-             <br><button type="submit" class="btn btn-primary" (click)="entrar()">Entrar</button>                          
+             <br><button type="submit" class="btn btn-primary" id="btn" (click)="entrar()">Entrar</button>                          
             </form>    
                
         </div>
