@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   entrar(){
     if(this.userForm.value.cpf == '123' && this.userForm.value.senha == '123'){
-      this.router.navigate(['clientes']);
+      this.router.navigate(['comprar']);
     }else{
       this.mensagemErro = 'CPF ou senha Inválidos'
     }

@@ -4,29 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
+    <title>Nova compra</title>
 </head>
 <body>
-
+  <form [formGroup]="compraForm">
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Nome</th>
-            <th scope="col">CPF</th>
-            <th scope="col">Ação</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Valor</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
 
-          <tr *ngFor="let cliente of clientes, let i = index" id="{{'cliente'+i}}">
-            <th scope="row">{{i}}</th>
-            <td>{{cliente.nome}}</td>
-            <td>{{cliente.cpf}}</td>
-            <td><button type="button" class="btn btn-danger" (click)="excluir(i)">Excluir</button></td>
+          <tr>
+           
+              <td><input class="form-control" type="text"></td>
+              <td>
+                <select id="sexo" formControlName="sexo" class="form-control" required>
+                  <option selected>Masculino</option>
+                  <option value="1">Feminino</option>
+                </select>
+              </td>
+              <td> <input id="valor" type="text" class="form-control" formControlName="valor" required></td>
+              <td><button type="submit" id="comprar" class="btn btn-success"  (click)="comprar()">Comprar</button></td>
+           
           </tr>
           <h3 id="mensagemSucesso"> {{mensagemSucesso}} </h3>
         </tbody>
       </table>
-   
+  </form>
 </body>
 </html>

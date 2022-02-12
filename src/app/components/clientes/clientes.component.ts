@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from 'src/app/enum/cliente.models';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-clientes',
@@ -8,52 +8,50 @@ import { Cliente } from 'src/app/enum/cliente.models';
 })
 export class ClientesComponent implements OnInit {
 
-  clientes!: Cliente [];
+
   mensagemSucesso = '';
+  
+  public compraForm = new FormGroup({
+    sexo: new FormControl(null),
+    valor: new FormControl(null)    
+  });
 
   constructor() { }
 
   ngOnInit(): void {
-    this.clientes = [
-      {
-      'id':1,
-      'nome':'leo',
-      'cpf':'123'
-      },
-      {
-        'id':2,
-        'nome':'aline',
-        'cpf':'1234'
-      },
-      {
-        'id':3,
-        'nome':'pureza',
-        'cpf':'1235'
-      },
-      {
-        'id':4,
-        'nome':'marco',
-        'cpf':'1236'
-      },
-      {
-        'id':5,
-        'nome':'mario',
-        'cpf':'1237'
-      },
-      {
-        'id':6,
-        'nome':'naruto',
-        'cpf':'1238'
-      }, 
-  ]
+   
   }
 
-  excluir(index: number){
-    
-      this.clientes.splice(index,1);
-      this.mensagemSucesso = 'Cliente Removido'
-      setTimeout(() => { this.mensagemSucesso=''}, 2000)
-      console.log(this.clientes)
+  comprar(){
+    if(this.compraForm.value.sexo=='' || this.compraForm.value.valor ==''){
+      this.mensagemSucesso = 'Os campos de sexo e valor são obrigatórios'
+      return;
+    }
+    if(this.compraForm.value.sexo == "Masculino"){
+      if(this.compraForm.value.valor < 400){
+          this.mensagemSucesso = "O senhor ganhou 100 pontos no seu plano de fidelidade";
+      }else if(this.compraForm.value.valor < 1000){
+          this.mensagemSucesso = "O senhor ganhou 200 pontos no seu plano de fidelidade";
+      }else if(this.compraForm.value.valor < 1500){
+          this.mensagemSucesso = "O senhor ganhou 300 pontos no seu plano de fidelidade";
+      }else if(this.compraForm.value.valor < 2000){
+          this.mensagemSucesso = "O senhor ganhou 500 pontos no seu plano de fidelidade";
+      }else{
+          this.mensagemSucesso = "O senhor ganhou 1000 pontos no seu plano de fidelidade";
+      }
+  }else{
+      if(this.compraForm.value.valor < 400){
+          this.mensagemSucesso = "A senhora ganhou 100 pontos no seu plano de fidelidade";
+      }else if(this.compraForm.value.valor < 1000){
+          this.mensagemSucesso = "A senhora ganhou 200 pontos no seu plano de fidelidade";
+      }else if(this.compraForm.value.valor < 1500){
+          this.mensagemSucesso = "A senhora ganhou 300 pontos no seu plano de fidelidade";
+      }else if(this.compraForm.value.valor < 2000){
+          this.mensagemSucesso = "A senhora ganhou 500 pontos no seu plano de fidelidade";
+      }else{
+          this.mensagemSucesso = "A senhora ganhou 1000 pontos no seu plano de fidelidade";
+      }
+  }
   }
 
 }
